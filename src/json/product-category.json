@@ -1,0 +1,7 @@
+{
+  "products": [
+    { "item": "Headphones", "link": "test" },
+    { "item": "Speakers", "link": "test" },
+    { "item": "Earphones", "link": "test" }
+  ]
+}

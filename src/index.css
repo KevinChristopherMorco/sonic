@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins";
+}
+
+:root {
+  --brand-color: #d87d4a;
+
+  --header-color: #0e0e0e;
+  --hero-color: #191919;
+}
+
+@layer base {
+  html,
+  body {
+    @apply h-screen;
+  }
+
+  #root {
+    @apply flex flex-col h-screen min-h-full;
+  }
+}
