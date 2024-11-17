@@ -1,7 +1,7 @@
 {
   "products": [
-    { "item": "Headphones", "link": "test" },
-    { "item": "Speakers", "link": "test" },
-    { "item": "Earphones", "link": "test" }
+    { "item": "Headphones", "link": "/headphones" },
+    { "item": "Speakers", "link": "/speakers" },
+    { "item": "Earphones", "link": "/earphones" }
   ]
 }

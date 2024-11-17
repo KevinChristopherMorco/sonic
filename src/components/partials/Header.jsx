@@ -1,27 +1,29 @@
-import {
-  RiMenuFill,
-  RiShoppingCartLine,
-  RiUserFill,
-  RiUserLine,
-} from "@remixicon/react";
 import React from "react";
+import { Link } from "react-router-dom";
+import { RiMenuFill, RiShoppingCartLine } from "@remixicon/react";
 
-const Header = () => {
+import { useCartContext } from "../../hooks/cart/CartProvider";
+
+const Header = ({ toggle, setToggle }) => {
+  const { cartQuantity } = useCartContext();
   return (
-    <nav className="grid grid-cols-3 py-6 px-4 items-center justify-between place-items-center	 bg-[var(--header-color)] text-white">
-      <div className="text-3xl font-extrabold row-start-1 col-start-2">
-        Sonic
-      </div>
-      <RiShoppingCartLine className="cursor-pointer row-start-1 col-start-3 justify-self-end" />
-      <RiMenuFill className="cursor-pointer row-start-1 col-start-1 justify-self-start" />
-
-      {/* <div className="flex items-center gap-5">
-        <RiShoppingCartLine className="cursor-pointer" />
-
-        <div className="w-7 h-7 rounded-full flex items-center justify-center border-gray-200 border-2 cursor-pointer">
-          <RiUserLine className="w-5 h-5" />
+    <nav className="fixed z-[999] top-0 w-full grid grid-cols-3 py-6 px-4 items-center justify-between place-items-center	 bg-[var(--header-color)] text-white">
+      <Link
+        to={"/"}
+        className="text-3xl font-extrabold row-start-1 col-start-2"
+      >
+        <p>Sonic</p>
+      </Link>
+      <div
+        className="relative justify-self-end cursor-pointer "
+        onClick={() => setToggle(!toggle)}
+      >
+        <div className="absolute left-4 w-3 h-3 bg-[var(--brand-color)] rounded-full flex items-center justify-center">
+          <p className="text-[.7rem]">{cartQuantity}</p>
         </div>
-      </div> */}
+        <RiShoppingCartLine className="row-start-1 col-start-3 justify-self-end" />
+      </div>
+      <RiMenuFill className="cursor-pointer row-start-1 col-start-1 justify-self-start" />
     </nav>
   );
 };
