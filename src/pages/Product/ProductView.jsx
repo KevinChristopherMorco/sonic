@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { RiShoppingCartLine } from "@remixicon/react";
 
@@ -11,13 +11,15 @@ import useManageCart from "../../hooks/cart/useManageCart";
 import Mainheading from "../../components/shared/Mainheading";
 import SeeProduct from "../../components/shared/buttons/SeeProduct";
 import { useCartContext } from "../../hooks/cart/CartProvider";
+import ProductQuantity from "../../components/shared/buttons/ProductQuantity";
 
 const ProductView = () => {
   const { productID } = useParams();
   const { count, setCount, handleQuantity } = useCountQuantity();
   const { addToCart } = useCartContext();
-  useScrollTop();
   const product = productCategory().find((product) => product.id === productID);
+
+  useScrollTop(productID);
 
   const item = {
     productID: product.id,
@@ -50,7 +52,7 @@ const ProductView = () => {
               ${formatPrice(product.price)}
             </p>
             <div className="flex items-center w-fit">
-              <div className="flex items-center gap-8 bg-[var(--light-gray-color)] w-fit p-3">
+              {/* <div className="flex items-center gap-8 bg-[var(--light-gray-color)] w-fit p-3">
                 <button id="desc" onClick={handleQuantity}>
                   -
                 </button>
@@ -58,7 +60,12 @@ const ProductView = () => {
                 <button id="asc" onClick={handleQuantity}>
                   +
                 </button>
-              </div>
+              </div> */}
+              <ProductQuantity
+                count={count}
+                view={"productView"}
+                handleQuantity={handleQuantity}
+              />
               <button
                 className="uppercase bg-[var(--brand-color)] text-white p-3 flex gap-1 items-center"
                 onClick={handleAddToCart}

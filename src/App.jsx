@@ -8,6 +8,7 @@ import ProductView from "./pages/Product/ProductView";
 
 import useManageCart from "./hooks/cart/useManageCart";
 import CartProvider from "./hooks/cart/CartProvider";
+import Checkout from "./pages/checkout/Checkout";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
                 path="/:productCategory/:productID"
                 element={<ProductView />}
               />
+              <Route path="/checkout" element={<Checkout />} />
             </Route>
           </Routes>
         </CartProvider>

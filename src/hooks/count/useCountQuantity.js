@@ -5,6 +5,7 @@ const useCountQuantity = () => {
 
   const handleQuantity = (event) => {
     const { id } = event.target;
+    console.log(count);
     if (id === "desc") {
       if (count === 0) return;
       setCount((prev) => {
@@ -18,6 +19,10 @@ const useCountQuantity = () => {
       });
     }
   };
+
+  const handleModifyQuantity = () => {
+    
+  }
 
   return { count, setCount, handleQuantity };
 };
