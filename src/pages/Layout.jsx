@@ -9,9 +9,11 @@ import Footer from "../components/partials/Footer";
 import ProductQuantity from "../components/shared/buttons/ProductQuantity";
 
 const Layout = () => {
-  const { cart, cartQuantity } = useCartContext();
-  const { count, setCount, handleQuantity } = useCountQuantity();
+  const { cart, cartQuantity, setCart } = useCartContext();
+  const { count, setCount, handleQuantity, handleModifyQuantity } =
+    useCountQuantity(cart, setCart);
   const [toggle, setToggle] = useState(false);
+
   return (
     <>
       <Header toggle={toggle} setToggle={setToggle} />
@@ -27,24 +29,25 @@ const Layout = () => {
             <p className="tracking-widest text-xl ">({cartQuantity})</p>
           </div>
           <div className="flex flex-col gap-10 overflow-y-scroll">
-            {cart?.map((cart) => {
-              console.log(cart);
+            {cart?.map((item) => {
               return (
                 <div className="flex gap-4">
                   <img
-                    src={cart.productImage}
+                    src={item.productImage}
                     alt=""
                     className="w-20 h-20 rounded-md"
                   />
                   <div className="flex flex-col gap-2">
-                    <p className="text-white font-medium">{cart.productName}</p>
-                    <p className="font-light">${cart.totalPrice}</p>
+                    <p className="text-white font-medium">{item.productName}</p>
+                    <p className="font-light">${item.totalPrice}</p>
                   </div>
                   <div className="flex items-center gap-5">
                     <div className="flex gap-2 items-center">
                       <ProductQuantity
-                        count={cart.productQuantity}
-                        handleQuantity={handleQuantity}
+                        count={item.productQuantity}
+                        handleQuantity={(event) =>
+                          handleModifyQuantity(event, item, cart, setCart)
+                        }
                       />
                       <p className="font-medium">X</p>
                     </div>

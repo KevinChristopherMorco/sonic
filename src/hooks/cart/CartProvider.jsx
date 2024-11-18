@@ -29,7 +29,7 @@ const CartProvider = ({ children }) => {
 
   const addToCart = (item) => {
     console.log(item);
-    if (cart?.some((x) => x.productID)) {
+    if (cart?.some((x) => x.productID === item.productID)) {
       const findProduct = cart.find((x) => x.productID);
       setCart((prev) => {
         return prev.map((product) =>
@@ -47,6 +47,7 @@ const CartProvider = ({ children }) => {
       setCartQuantity((prev) => prev + item.productQuantity);
       return;
     }
+
     setCart((prev) => {
       return prev
         ? [...prev, { ...item, totalPrice: item.totalPrice() }]
@@ -63,7 +64,7 @@ const CartProvider = ({ children }) => {
 
   return (
     <CartContext.Provider
-      value={{ cart, cartQuantity, addToCart, handleQuantity }}
+      value={{ cart, cartQuantity, addToCart, handleQuantity, setCart }}
     >
       {children}
     </CartContext.Provider>

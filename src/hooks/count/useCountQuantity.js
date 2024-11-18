@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 
-const useCountQuantity = () => {
+import findProduct from "../../helpers/findProduct";
+import { useCartContext } from "../cart/CartProvider";
+
+const useCountQuantity = (cart, setCart) => {
   const [count, setCount] = useState(0);
+  // const { cart } = useCartContext();
 
   const handleQuantity = (event) => {
     const { id } = event.target;
@@ -20,11 +24,42 @@ const useCountQuantity = () => {
     }
   };
 
-  const handleModifyQuantity = () => {
-    
-  }
+  const handleModifyQuantity = (event, item) => {
+    // const product = findProduct(cart);
 
-  return { count, setCount, handleQuantity };
+    const { id } = event.target;
+
+    if (id === "desc") {
+      if (item.productQuantity === 0) return;
+      setCart((prev) => {
+        return prev.map((product) =>
+          product.productID === item.productID
+            ? {
+                ...item,
+                productQuantity: item.productQuantity - 1,
+                totalPrice: item.totalPrice - product.productPrice,
+              }
+            : product
+        );
+      });
+    }
+
+    if (id === "asc") {
+      setCart((prev) => {
+        return prev.map((product) =>
+          product.productID === item.productID
+            ? {
+                ...item,
+                productQuantity: item.productQuantity + 1,
+                totalPrice: item.totalPrice + product.productPrice,
+              }
+            : product
+        );
+      });
+    }
+  };
+
+  return { count, setCount, handleQuantity, handleModifyQuantity };
 };
 
 export default useCountQuantity;
