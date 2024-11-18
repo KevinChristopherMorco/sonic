@@ -2,7 +2,7 @@
   "headphones": [
     {
       "id": "hph-219e16d5-1296-478a-acad-a22e23bf96e9",
-      "item": "XX99 MARK II Headphones",
+      "item": "XX99 MARK II",
       "detail": "The new XX99 Mark II headphones is the pinnacle of pristine audio. It redefines your premium headphone experience by reproducing the balanced depth and precision of studio-quality sound.",
       "price": 2999,
       "features": [
@@ -41,7 +41,7 @@
 
     {
       "id": "hph-17e20201-c2fc-4a11-95d3-ea7597facd16",
-      "item": "XX99 MARK I Headphones",
+      "item": "XX99 MARK I",
       "detail": "As the gold standard for headphones, the classic XX99 Mark I offers detailed and accurate audio reproduction for audiophiles, mixing engineers, and music aficionados alike in studios and on the go.",
       "price": 1750,
       "features": [
@@ -71,7 +71,7 @@
         },
         {
           "id": "spk-076b0e48-5020-484e-827b-922102dc2c8c",
-          "item": "ZX9 SPEAKER",
+          "item": "ZX9",
           "image": "/src/assets/images/speakers/zx9.jpg",
           "category": "speakers"
         }
@@ -80,7 +80,7 @@
 
     {
       "id": "hph-524effc6-ea73-41ba-9620-3504d5359e0b",
-      "item": "XX59 Headphones",
+      "item": "XX59",
       "detail": "Enjoy your audio almost anywhere and customize it to your specific tastes with the XX59 headphones. The stylish yet durable versatile wireless headset is a brilliant companion at home or on the move.",
       "price": 899,
       "features": [
@@ -109,7 +109,7 @@
         },
         {
           "id": "spk-076b0e48-5020-484e-827b-922102dc2c8c",
-          "item": "ZX9 SPEAKER",
+          "item": "ZX9",
           "image": "/src/assets/images/speakers/zx9.jpg",
           "category": "speakers"
         }
@@ -119,7 +119,7 @@
   "speakers": [
     {
       "id": "spk-076b0e48-5020-484e-827b-922102dc2c8c",
-      "item": "ZX9 Speaker",
+      "item": "ZX9",
       "detail": "Upgrade your sound system with the all new ZX9 active speaker. It’s a bookshelf speaker system that offers truly wireless connectivity -- creating new possibilities for more pleasing and practical audio setups.",
       "price": 4500,
       "features": [
@@ -137,7 +137,7 @@
       "similar": [
         {
           "id": "spk-dd12b862-7315-43f5-8df8-906ec313fadc",
-          "item": "ZX7 SPEAKER",
+          "item": "ZX7",
           "image": "/src/assets/images/earphones/yx1-2.jpg",
           "category": "speakers"
         },
@@ -158,7 +158,7 @@
 
     {
       "id": "spk-dd12b862-7315-43f5-8df8-906ec313fadc",
-      "item": "ZX7 Speaker",
+      "item": "ZX7",
       "detail": "Stream high quality sound wirelessly with minimal to no loss. The ZX7 speaker uses high-end audiophile components that represents the top of the line powered speakers for home or studio use.",
       "price": 3500,
       "features": [
@@ -176,7 +176,7 @@
       "similar": [
         {
           "id": "spk-076b0e48-5020-484e-827b-922102dc2c8c",
-          "item": "ZX9 SPEAKER",
+          "item": "ZX9",
           "image": "/src/assets/images/speakers/zx9.jpg",
           "category": "speakers"
         },
@@ -199,7 +199,7 @@
   "earphones": [
     {
       "id": "erp-79123b51-7a31-47bc-a423-93a6225cb921",
-      "item": "YX1 Wireless Earphones",
+      "item": "YX1",
       "detail": "Tailor your listening experience with bespoke dynamic drivers from the new YX1 Wireless Earphones. Enjoy incredible high-fidelity sound even in noisy environments with its active noise cancellation feature.",
       "price": 599,
       "features": [
@@ -229,7 +229,7 @@
         },
         {
           "id": "spk-076b0e48-5020-484e-827b-922102dc2c8c",
-          "item": "ZX9 SPEAKER",
+          "item": "ZX9",
           "image": "/src/assets/images/speakers/zx9.jpg",
           "category": "speakers"
         }

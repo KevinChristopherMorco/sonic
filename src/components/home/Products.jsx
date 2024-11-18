@@ -20,7 +20,10 @@ const Products = () => {
         {category.products.map((product, index) => {
           const images = [headphones, speakers, wireless];
           return (
-            <div className="text-center flex flex-col justify-end items-center bg-gray-200 w-full relative h-[10rem] rounded-lg py-4">
+            <div
+              key={index}
+              className="text-center flex flex-col justify-end items-center bg-gray-200 w-full relative h-[10rem] rounded-lg py-4"
+            >
               <img
                 src={images[index]}
                 alt={product.item}

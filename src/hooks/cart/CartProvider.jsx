@@ -23,8 +23,6 @@ const CartProvider = ({ children }) => {
     }, 0) || 0
   );
 
-  console.log(cartTotalPrice);
-
   const addToCart = (item) => {
     console.log(item);
     if (cart?.some((x) => x.productID === item.productID)) {
@@ -43,7 +41,9 @@ const CartProvider = ({ children }) => {
         );
       });
       setCartQuantity((prev) => prev + item.productQuantity);
-      setCartTotalPrice((prev) => prev + item.productPrice);
+      setCartTotalPrice(
+        (prev) => prev + item.productPrice * item.productQuantity
+      );
       return;
     }
 
@@ -53,9 +53,18 @@ const CartProvider = ({ children }) => {
         : [{ ...item, totalPrice: item.totalPrice() }];
     });
     setCartQuantity((prev) => prev + item.productQuantity);
+    setCartTotalPrice(
+      (prev) => prev + item.productPrice * item.productQuantity
+    );
   };
 
   const deleteCartItem = () => {};
+
+  const deleteAllCartItem = () => {
+    setCart(null);
+    setCartQuantity(0);
+    setCartTotalPrice(0);
+  };
 
   useEffect(() => {
     localStorage.setItem("sonic-cart", JSON.stringify(cart));
@@ -66,7 +75,9 @@ const CartProvider = ({ children }) => {
       value={{
         cart,
         cartQuantity,
+        cartTotalPrice,
         addToCart,
+        deleteAllCartItem,
         setCart,
         setCartQuantity,
         setCartTotalPrice,
