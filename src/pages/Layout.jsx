@@ -9,9 +9,14 @@ import Footer from "../components/partials/Footer";
 import ProductQuantity from "../components/shared/buttons/ProductQuantity";
 
 const Layout = () => {
-  const { cart, cartQuantity, setCart } = useCartContext();
-  const { count, setCount, handleQuantity, handleModifyQuantity } =
-    useCountQuantity(cart, setCart);
+  const { cart, cartQuantity, setCart, setCartQuantity, setCartTotalPrice } =
+    useCartContext();
+  const { handleModifyQuantity } = useCountQuantity(
+    cart,
+    setCart,
+    setCartQuantity,
+    setCartTotalPrice
+  );
   const [toggle, setToggle] = useState(false);
 
   return (

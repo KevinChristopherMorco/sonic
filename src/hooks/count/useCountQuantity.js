@@ -3,7 +3,12 @@ import React, { useState } from "react";
 import findProduct from "../../helpers/findProduct";
 import { useCartContext } from "../cart/CartProvider";
 
-const useCountQuantity = (cart, setCart) => {
+const useCountQuantity = (
+  cart,
+  setCart,
+  setCartQuantity,
+  setCartTotalPrice
+) => {
   const [count, setCount] = useState(0);
   // const { cart } = useCartContext();
 
@@ -42,6 +47,8 @@ const useCountQuantity = (cart, setCart) => {
             : product
         );
       });
+      setCartQuantity((prev) => prev - 1);
+      setCartTotalPrice((prev) => prev - item.productPrice);
     }
 
     if (id === "asc") {
@@ -56,6 +63,8 @@ const useCountQuantity = (cart, setCart) => {
             : product
         );
       });
+      setCartQuantity((prev) => prev + 1);
+      setCartTotalPrice((prev) => prev + item.productPrice);
     }
   };
 

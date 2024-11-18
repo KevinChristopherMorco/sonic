@@ -16,16 +16,14 @@ const CartProvider = ({ children }) => {
     }, 0) || 0
   );
 
-  const { count, setCount, handleQuantity } = useCountQuantity();
+  const [cartTotalPrice, setCartTotalPrice] = useState(
+    cart?.reduce((total, item) => {
+      total += item.totalPrice;
+      return total;
+    }, 0) || 0
+  );
 
-  // const addToCart = (item) => {
-  //   setCart((prev) => {
-  //     return prev
-  //       ? [...prev, { ...item, totalPrice: item.totalPrice() }]
-  //       : [{ ...item, totalPrice: item.totalPrice() }];
-  //   });
-  //   setCartQuantity((prev) => prev + item.productQuantity);
-  // };
+  console.log(cartTotalPrice);
 
   const addToCart = (item) => {
     console.log(item);
@@ -45,6 +43,7 @@ const CartProvider = ({ children }) => {
         );
       });
       setCartQuantity((prev) => prev + item.productQuantity);
+      setCartTotalPrice((prev) => prev + item.productPrice);
       return;
     }
 
@@ -64,7 +63,14 @@ const CartProvider = ({ children }) => {
 
   return (
     <CartContext.Provider
-      value={{ cart, cartQuantity, addToCart, handleQuantity, setCart }}
+      value={{
+        cart,
+        cartQuantity,
+        addToCart,
+        setCart,
+        setCartQuantity,
+        setCartTotalPrice,
+      }}
     >
       {children}
     </CartContext.Provider>
