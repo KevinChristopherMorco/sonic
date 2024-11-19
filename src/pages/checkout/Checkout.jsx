@@ -175,10 +175,9 @@ const Checkout = () => {
         </form>
         <div className="flex flex-col gap-5">
           <h4 className="text-lg font-medium">Summary</h4>
-          {cart?.map((product) => {
-            console.log(cart);
+          {cart?.map((product, index) => {
             return (
-              <div className="flex justify-between items-center">
+              <div key={index} className="flex justify-between items-center">
                 <div className="flex gap-4 items-center">
                   <img
                     src={product.productImage}
@@ -202,22 +201,6 @@ const Checkout = () => {
               </div>
             );
           })}
-          {/* <div className="flex justify-between items-center">
-            <div className="flex gap-4 items-center">
-              <img
-                src="https://placehold.co/75x75"
-                alt=""
-                className="rounded"
-              />
-              <div className="font-light">
-                <p className="uppercase font-medium">XX59</p>
-                <p className="uppercase tracking-wider">$12,500</p>
-              </div>
-            </div>
-            <div>
-              <p className="uppercase tracking-widest font-medium">7x</p>
-            </div>
-          </div> */}
           <div className="uppercase font-medium flex justify-between items-center">
             <p>Total</p>
             <p>${formatPrice(cartTotalPrice)}</p>

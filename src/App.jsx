@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "typeface-poppins";
+import "typeface-manrope";
 
 import Home from "./pages/home/Home";
 import Layout from "./pages/layout";
