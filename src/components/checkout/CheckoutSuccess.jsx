@@ -7,18 +7,19 @@ import formatPrice from "../../helpers/format/formatPrice";
 
 const CheckoutSuccess = () => {
   const navigate = useNavigate();
-  const { cart, cartTotalPrice, setPayedCheckout, setCartQuantity } =
+  const { cart, setCart, cartTotalPrice, setPayedCheckout, setCartQuantity } =
     useCartContext();
   console.log(cart);
 
   const handleBack = () => {
     navigate("/");
     setCartQuantity(0);
+    setCart(null);
     setPayedCheckout(false);
   };
   return (
-    <div className="fixed z-[998] flex h-screen w-full flex-col items-center bg-black bg-opacity-20 py-2 md:px-5 lg:justify-center">
-      <div className="mt-[5rem] flex max-h-[90vh] w-[90%] flex-col gap-8 overflow-y-scroll rounded-lg bg-white p-6 text-black md:w-[70%] xl:h-full xl:w-[30%] xl:w-[40%]">
+    <div className="fixed z-[998] flex h-screen w-full flex-col items-center bg-black bg-opacity-50 py-2 md:justify-center md:px-5">
+      <div className="mt-[5rem] flex max-h-[90vh] w-[90%] flex-col gap-8 overflow-y-scroll rounded-lg bg-white p-6 text-black md:w-[70%] xl:h-[80%] xl:w-[30%] xl:w-[50%]">
         <div className="flex flex-col justify-between gap-5">
           <div className="flex h-16 w-16 items-center justify-center gap-2 rounded-full bg-[var(--brand-color)] font-medium text-white">
             <RiCheckFill className="h-10 w-10" />
@@ -33,9 +34,12 @@ const CheckoutSuccess = () => {
         </div>
 
         <div className="flex flex-col">
-          {cart?.map((cart) => {
+          {cart?.map((cart, index) => {
             return (
-              <div className="flex items-center gap-4 rounded-t-lg bg-[#F2F2F2] p-4">
+              <div
+                key={index}
+                className="flex items-center gap-4 rounded-t-lg bg-[#F2F2F2] p-4"
+              >
                 <img
                   src={cart.productImage}
                   alt=""

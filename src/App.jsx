@@ -7,7 +7,6 @@ import Layout from "./pages/layout";
 import ProductCategory from "./pages/Product/ProductCategory";
 import ProductView from "./pages/Product/ProductView";
 
-import useManageCart from "./hooks/cart/useManageCart";
 import CartProvider from "./hooks/cart/CartProvider";
 import Checkout from "./pages/checkout/Checkout";
 

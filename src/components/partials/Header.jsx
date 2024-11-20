@@ -7,10 +7,20 @@ import useScreenResponsiveness from "../../hooks/useScreenResponsiveness";
 
 import ProductCategoryLink from "../../components/shared/links/ProductCategoryLink";
 
-const Header = ({ toggleCart, setToggleCart }) => {
+const Header = ({
+  toggleCart,
+  setToggleCart,
+  setToggleSidebar,
+  setSidebarVisible,
+}) => {
   const { cartQuantity } = useCartContext();
   const { isSmallScreen, isLargeScreen } = useScreenResponsiveness();
-  console.log(isLargeScreen);
+
+  const handleSidebar = () => {
+    setToggleSidebar(true);
+    setSidebarVisible(true);
+  };
+
   return (
     <nav className="fixed top-0 z-[999] grid w-full grid-cols-3 items-center justify-between bg-[var(--header-color)] px-4 py-6 text-white md:grid-cols-[0.5fr_1fr_5fr] md:px-16 lg:grid-cols-3 lg:justify-items-center">
       <Link
@@ -34,7 +44,10 @@ const Header = ({ toggleCart, setToggleCart }) => {
       </div>
 
       {isSmallScreen && (
-        <RiMenuFill className="col-start-1 row-start-1 cursor-pointer justify-self-start" />
+        <RiMenuFill
+          className="col-start-1 row-start-1 cursor-pointer justify-self-start"
+          onClick={handleSidebar}
+        />
       )}
 
       {isLargeScreen && (

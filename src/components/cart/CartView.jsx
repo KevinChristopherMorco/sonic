@@ -31,8 +31,8 @@ const CartView = () => {
     deleteCartItem(item);
   };
   return (
-    <div className="fixed z-[998] flex h-screen w-full flex-col items-center bg-black bg-opacity-20 py-10 md:items-end md:px-5">
-      <div className="my-[5rem] flex max-h-[90vh] w-[90%] flex-col gap-8 overflow-y-scroll rounded-lg bg-white p-6 text-black md:w-[50%] xl:w-[30%]">
+    <div className="md:items- fixed z-[998] flex h-screen w-full flex-col items-center bg-black bg-opacity-50 py-10 md:px-5">
+      <div className="my-[5rem] flex max-h-[90vh] w-[90%] flex-col gap-8 overflow-y-scroll rounded-lg bg-white p-6 text-black md:w-[50%] xl:w-[40%]">
         <div className="flex items-center justify-between uppercase">
           <div className="flex items-center gap-2 font-medium">
             <h4 className="text-lg">Cart</h4>
@@ -50,14 +50,18 @@ const CartView = () => {
           {cart?.map((item, index) => {
             return (
               <div key={index} className="flex items-center justify-between">
-                <img
-                  src={item.productImage}
-                  alt=""
-                  className="h-20 w-20 rounded-md"
-                />
-                <div className="flex flex-col gap-2 text-[.8rem]">
-                  <p className="w-[6rem] font-medium">{item.productName}</p>
-                  <p className="font-light">${formatPrice(item.totalPrice)}</p>
+                <div className="flex items-center gap-2 md:gap-8 lg:gap-5">
+                  <img
+                    src={item.productImage}
+                    alt=""
+                    className="h-20 w-20 rounded-md"
+                  />
+                  <div className="flex flex-col gap-2 text-[.8rem]">
+                    <p className="w-[6rem] font-medium">{item.productName}</p>
+                    <p className="font-light">
+                      ${formatPrice(item.totalPrice)}
+                    </p>
+                  </div>
                 </div>
                 <div className="flex items-center gap-5">
                   <div className="flex items-center gap-2">

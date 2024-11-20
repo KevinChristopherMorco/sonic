@@ -89,8 +89,6 @@ const CartProvider = ({ children }) => {
 
   const handlePayCheckout = (event) => {
     event.preventDefault();
-
-    const data = new FormData(event.target);
     setPayedCheckout(true);
   };
 
@@ -112,7 +110,7 @@ const CartProvider = ({ children }) => {
         setCart,
         setCartQuantity,
         setCartTotalPrice,
-        setPayedCheckout
+        setPayedCheckout,
       }}
     >
       {children}
