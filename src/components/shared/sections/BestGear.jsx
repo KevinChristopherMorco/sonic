@@ -2,9 +2,9 @@ import React from "react";
 
 const BestGear = () => {
   return (
-    <section className="px-6 flex flex-col-reverse items-center text-center gap-10 lg:flex-row lg:items-start lg:items-center lg:text-start">
+    <section className="flex flex-col-reverse items-center gap-10 px-6 text-center lg:flex-row lg:items-start lg:items-center lg:px-20 lg:text-start">
       <div className="flex flex-col gap-10 lg:w-[50%]">
-        <h1 className="uppercase text-3xl font-bold md:text-4xl md:px-20 tracking-wider lg:px-0">
+        <h1 className="text-3xl font-bold uppercase tracking-wider md:px-20 md:text-4xl lg:px-0">
           Bringing you the{" "}
           <span className="text-[var(--brand-color)]">best</span> audio gear
         </h1>
@@ -18,11 +18,11 @@ const BestGear = () => {
         </p>
       </div>
 
-      <div className="flex flex-col gap-5 lg:justufy-between lg:flex-row lg:w-[50%]">
+      <div className="lg:justufy-between flex flex-col gap-5 lg:w-[50%] lg:flex-row">
         <img
           src="/src/assets/images/featured/best-gear.jpg"
           alt=""
-          className="rounded-md w-full h-[350px] xl:h-[500px]"
+          className="h-[350px] w-full rounded-md xl:h-[500px]"
         />
       </div>
     </section>

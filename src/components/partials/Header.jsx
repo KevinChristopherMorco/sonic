@@ -12,30 +12,33 @@ const Header = ({ toggleCart, setToggleCart }) => {
   const { isSmallScreen, isLargeScreen } = useScreenResponsiveness();
   console.log(isLargeScreen);
   return (
-    <nav className="fixed z-[999] top-0 w-full grid grid-cols-3 md:grid-cols-[0.5fr_1fr_5fr] py-6 px-4 md:px-16 items-center justify-between bg-[var(--header-color)] text-white lg:grid-cols-3 lg:justify-items-center">
+    <nav className="fixed top-0 z-[999] grid w-full grid-cols-3 items-center justify-between bg-[var(--header-color)] px-4 py-6 text-white md:grid-cols-[0.5fr_1fr_5fr] md:px-16 lg:grid-cols-3 lg:justify-items-center">
       <Link
         to={"/"}
-        className="text-3xl font-extrabold row-start-1 col-start-2 lg:col-start-1 text-center w-fit justify-self-center"
+        className="col-start-2 row-start-1 w-fit justify-self-center text-center text-3xl font-extrabold lg:col-start-1"
       >
         <p>Sonic</p>
       </Link>
 
       <div
-        className="relative justify-self-end cursor-pointer lg:col-start-3 lg:justify-self-center"
+        className="relative cursor-pointer justify-self-end lg:col-start-3 lg:justify-self-center"
         onClick={() => setToggleCart(!toggleCart)}
       >
-        <div className="absolute left-4 w-3 h-3 bg-[var(--brand-color)] rounded-full flex items-center justify-center">
-          <p className="text-[.7rem]">{cartQuantity}</p>
-        </div>
-        <RiShoppingCartLine className="row-start-1 col-start-3" />
+        {cartQuantity !== 0 && (
+          <div className="absolute left-4 flex h-3 w-3 items-center justify-center rounded-full bg-[var(--brand-color)]">
+            <p className="text-[.7rem]">{cartQuantity}</p>
+          </div>
+        )}
+
+        <RiShoppingCartLine className="col-start-3 row-start-1" />
       </div>
 
       {isSmallScreen && (
-        <RiMenuFill className="cursor-pointer row-start-1 col-start-1 justify-self-start" />
+        <RiMenuFill className="col-start-1 row-start-1 cursor-pointer justify-self-start" />
       )}
 
       {isLargeScreen && (
-        <div className="col-start-2 row-start-1 justify-self-center max-w-full lg:text-[.7rem] xl:text-sm">
+        <div className="col-start-2 row-start-1 max-w-full justify-self-center lg:text-[.7rem] xl:text-sm">
           <ProductCategoryLink />
         </div>
       )}

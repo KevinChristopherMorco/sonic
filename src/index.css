@@ -25,6 +25,6 @@
   }
 
   #root {
-    @apply flex flex-col min-h-full justify-between;
+    @apply flex min-h-full flex-col justify-between;
   }
 }
